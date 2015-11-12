@@ -49,7 +49,6 @@ var installationDemo = React.createClass({
         });
       })
       .then(installation => {
-        console.log();
         this.log('Installation updated: ' + JSON.stringify(installation.toJSON()));
         PushNotificationIOS.presentLocalNotification({
           alertBody: 'Installation updated.'
