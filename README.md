@@ -73,5 +73,7 @@ return installaton.save();
 ### FAQ
 #### Simulator 无法运行
 是的，推送功能必须真机调试。
+#### 红屏了: Could not connect to development server.
+请将 demo [这一行](https://github.com/leancloud/react-native-installation-demo/blob/master/ios/installationDemo/AppDelegate.m#L36)中的 IP 地址改为你电脑的局域网 IP 地址。
 #### How about Android
 由于 LeanCloud Android 推送功能是 Android SDK 来实现的，所以目前并没有类似 `PushNotificationIOS` 的 React Native 模块可用，建议直接使用 Android SDK，然后自己实现 SDK 与 js 之间的事件代理。
