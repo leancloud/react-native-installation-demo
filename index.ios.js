@@ -12,7 +12,7 @@ var {
   PushNotificationIOS,
 } = React;
 
-var AV = require('avoscloud-sdk');
+var AV = require('leancloud-storage');
 AV.initialize('NE1T3uRn8zjIWsmETEbsqpEu', '5K5HYy0wUmhryfKyQY2w1GtT');
 var Installation = require('leancloud-installation')(AV);
 
