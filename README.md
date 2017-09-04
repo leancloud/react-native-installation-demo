@@ -15,14 +15,14 @@ LeanCloud React Native Installation Demo
 
 然后，按照 [PushNotificationIOS - React Native docs](https://facebook.github.io/react-native/docs/pushnotificationios.html#content) 的说明，将推送相关的事件代理给 js。
 
-接下来，在你的 React 项目中安装依赖模块 avoscloud-sdk 与 [leancloud-installation](https://github.com/leancloud/javascript-sdk-installation-plugin)。
+接下来，在你的 React 项目中安装依赖模块 leancloud-storage 与 [leancloud-installation](https://github.com/leancloud/javascript-sdk-installation-plugin)。
 ```
-npm install avoscloud-sdk leancloud-installation --save
+npm install leancloud-storage leancloud-installation --save
 ```
 最后在 js 入口文件（index.ios.js）中引入所需要的模块并初始化：
 ```javascript
 var PushNotificationIOS = require('react-native').PushNotificationIOS;
-var AV = require('avoscloud-sdk');
+var AV = require('leancloud-storage');
 AV.initialize('appId', 'appKey');
 var LeancloudInstallation = require('leancloud-installation')(AV);
 ```
@@ -49,7 +49,9 @@ _onRegister: function(deviceToken) {
     .then(installation =>
       // Set new deviceToken and save.
       installation.save({
-        deviceToken: deviceToken
+        deviceToken: deviceToken,
+        apnsTopic: 'com.example',
+        deviceType: 'ios',
       });
     );
 }
